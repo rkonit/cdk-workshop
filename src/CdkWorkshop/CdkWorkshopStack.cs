@@ -1,7 +1,5 @@
 using Amazon.CDK;
-using Amazon.CDK.AWS.SNS;
-using Amazon.CDK.AWS.SNS.Subscriptions;
-using Amazon.CDK.AWS.SQS;
+using Amazon.CDK.AWS.Lambda;
 using Constructs;
 
 namespace CdkWorkshop
@@ -10,7 +8,13 @@ namespace CdkWorkshop
     {
         internal CdkWorkshopStack(Construct scope, string id, IStackProps props = null) : base(scope, id, props)
         {
-            // Nothing here
+            // Defines a new lambda resource
+            var hello = new Function(this, "HelloHandler", new FunctionProps
+            {
+                Runtime = Runtime.NODEJS_14_X, // execution environment
+                Code = Code.FromAsset("lambda"), // Code loaded from the "lambda" directory
+                Handler = "hello.handler" // file is "hello", function is "handler"
+            });
         }
     }
 }
