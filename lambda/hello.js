@@ -5,6 +5,6 @@ exports.handler = async function(event, context) {
         headers: { 
             "Content-Type": "text/plain",
         },
-        body: `Good Night, CDK! You've hit ${event.path}\n`,
+        body: `Hello, CDK! You've hit ${event.path}\n`,
     };
 }
