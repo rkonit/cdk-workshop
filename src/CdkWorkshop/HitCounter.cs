@@ -1,6 +1,6 @@
 using Amazon.CDK;
-using Amazon.CDK.AWS.Lambda;
 using Amazon.CDK.AWS.DynamoDB;
+using Amazon.CDK.AWS.Lambda;
 using Constructs;
 using System.Collections.Generic;
 
@@ -14,7 +14,8 @@ namespace CdkWorkshop
 
     public class HitCounter : Construct
     {
-        public IFunction Handler { get; }
+        public readonly Function Handler;
+        public readonly Table MyTable;
 
         public HitCounter(Construct scope, string id, HitCounterProps props) : base(scope, id)
         {
@@ -26,6 +27,7 @@ namespace CdkWorkshop
                     Type = AttributeType.STRING
                 }
             });
+            MyTable = table;
 
             Handler = new Function(this, "HitCounterHandler", new FunctionProps
             {
