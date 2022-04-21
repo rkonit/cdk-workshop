@@ -34,7 +34,8 @@ namespace CdkWorkshop
             new TableViewer(this, "ViewerHitCount", new TableViewerProps
             {
                 Title = "Hello Hits",
-                Table = helloWithCounter.MyTable
+                Table = helloWithCounter.MyTable,
+                SortBy = "-hits",
             });
         }
     }
