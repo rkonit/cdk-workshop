@@ -28,7 +28,7 @@ namespace CdkWorkshop
                     Input = CodePipelineSource.CodeCommit(repo, "main"),  // Where to get source code to build
                     Commands = new string[] {
                         "npm install -g aws-cdk",
-                        "sudo apt-get install -y dotnet-sdk-3.1", // Language-specific install cmd
+                        "curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel LTS", // OS-specific install cmd
                         "dotnet build"  // Language-specific build cmd
                     }
                 }),
