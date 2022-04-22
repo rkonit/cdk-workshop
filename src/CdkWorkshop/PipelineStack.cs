@@ -29,7 +29,8 @@ namespace CdkWorkshop
                     Commands = new string[] {
                         "npm install -g aws-cdk",
                         "curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel LTS", // OS-specific install cmd
-                        "dotnet build ./src"  // Language-specific build cmd
+                        "dotnet build ./src",  // Language-specific build cmd
+                        "npx cdk synth"  // synth command for NPM-based projects
                     }
                 }),
             });
